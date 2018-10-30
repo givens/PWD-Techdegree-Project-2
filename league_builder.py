@@ -1,4 +1,12 @@
 
+# -*- coding: utf-8 -*-
+"""
+Python Web Development Techdegree
+Project 2 - Soccer League Roster
+---------------------------------
+@author: bg
+"""
+
 import csv
 
 teams = {
@@ -10,6 +18,7 @@ teams = {
 FILEIN = "soccer_players.csv"
 FILEOUT = "teams.txt"
 NUMTEAMS = len(teams)
+
 
 def readplayers():
     "Read in player dictionary from file"
@@ -36,7 +45,7 @@ def writeleagueroster(teams):
     "Output team information to a file"
     with open(FILEOUT, 'w') as textfile:
         for team, records in teams.items():
-            print("\n"+team, file=textfile)
+            print("\n" + team, file=textfile)
             #print(20*"-", file=textfile)
             for record in records:
                 seq = (
@@ -47,6 +56,7 @@ def writeleagueroster(teams):
 
 
 def writeletter(teams):
+    "Write letter for each player to a file"
     for team, records in teams.items():
         for record in records:
             first_name, last_name = record["Name"].split()
@@ -57,7 +67,7 @@ def writeletter(teams):
 
 
 def createletter(team, record):
-    #import pdb; pdb.set_trace()
+    "Create letter to parents given player record and team info"
     return """Dear {},
 Your child, {}, is on the {} team.
 Practice begins at noon on June 1, 2019.
